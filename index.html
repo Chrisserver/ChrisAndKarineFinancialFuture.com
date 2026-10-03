@@ -29,7 +29,7 @@ h2{font-size:1.15rem;margin:26px 0 10px}h2:first-child{margin-top:4px}
 table{border-collapse:collapse;width:100%;font-size:.93rem}
 th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap}th{color:var(--mut);font-weight:600}
 td.n,th.n{text-align:right}
-details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:2px 16px;margin:10px 0}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:2px 16px;margin: 8px 0}
 summary{cursor:pointer;padding:12px 0;font-weight:600}
 details[open] summary{border-bottom:1px solid var(--line);margin-bottom:8px}
 details p,details ul{margin:8px 0 12px}ul{padding-left:20px}li{margin:4px 0}
@@ -68,6 +68,14 @@ input.i,select.i{width:100%;min-width:0;padding:6px 8px;border:1px solid var(--l
 <nav><div class="tabs" id="tabs"></div></nav>
 <main>
 
+<!-- 
+
+*******************************************************************
+                            OverView 
+*******************************************************************
+  
+-->
+
 <section id="overview" data-title="Overview">
 <h2>The big numbers</h2><div class="grid"><div class="card"><div class="big" data-k="e101">$80-100k</div><div class="lbl">cash around the house purchase, emergency fund included</div></div><div class="card"><div class="big" data-k="e102">$25-33k</div><div class="lbl">wedding total; family and gifts cover much of it</div></div><div class="card"><div class="big" data-k="e103">$10-12k</div><div class="lbl">honeymoon: Egypt, Greece, Italy</div></div><div class="card"><div class="big" data-k="e104">$25-35k</div><div class="lbl">emergency fund to keep after buying</div></div></div><h2>Shared to-do</h2>
 <div class="card"><ul id="todo"></ul><div class="add"><input id="ti" placeholder="Add a task for both of you" maxlength="120"><button id="ta">Add</button></div></div>
@@ -91,18 +99,211 @@ input.i,select.i{width:100%;min-width:0;padding:6px 8px;border:1px solid var(--l
 <details><summary>Original spreadsheet timeline and checks</summary><ul><li>Proposal Jun 2027, wedding Jun 2028, honeymoon Sep 2028, house Aug 2029, first child Sep 2029</li><li>REER cap in the old sheet is the 2024 figure ($31,560). For 2026 it is $33,810.</li><li>The old $9,013/month house scenario exceeds net pay at $124.8k; it needs two incomes or a cheaper home.</li></ul></details>
 </section>
 
+<!-- 
+
+*******************************************************************
+                             Budget 
+*******************************************************************
+  
+-->
+
 <section id="budget" data-title="Budget">
-<h2>Income and taxes</h2><div class="card wrap"><table><tr><th></th><th class="n">$52k, no REER</th><th class="n">$52k, REER</th><th class="n">$124.8k, no REER</th><th class="n">$124.8k, REER</th></tr><tr><td>Gross salary</td><td class="n">$52,000</td><td class="n">$52,000</td><td class="n">$124,800</td><td class="n">$124,800</td></tr><tr><td>REER contribution (18%)</td><td class="n">none</td><td class="n">$9,360</td><td class="n">none</td><td class="n">$22,464</td></tr><tr><td>Québec income tax</td><td class="n">$7,291</td><td class="n">$5,970</td><td class="n">$32,024</td><td class="n">$16,855</td></tr><tr><td>Federal income tax</td><td class="n">$7,800</td><td class="n">$6,396</td><td class="n">$34,683</td><td class="n">$17,906</td></tr><tr><td>RRQ</td><td class="n">$3,328</td><td class="n">$2,729</td><td class="n">$7,613</td><td class="n">$7,613</td></tr><tr><td>RQAP</td><td class="n">$257</td><td class="n">$211</td><td class="n">$617</td><td class="n">$506</td></tr><tr><td>EI (Canada)</td><td class="n">$863</td><td class="n">$708</td><td class="n">$2,072</td><td class="n">$1,699</td></tr><tr><td>EI (Québec)</td><td class="n">$686</td><td class="n">$563</td><td class="n">$1,647</td><td class="n">$1,351</td></tr><tr><td>Total deductions</td><td class="n">$20,225</td><td class="n">$17,500</td><td class="n">$46,145</td><td class="n">$31,946</td></tr><tr><td>Take-home per sheet</td><td class="n">$31,775</td><td class="n">$34,500</td><td class="n">$78,655</td><td class="n">$78,091</td></tr></table></div><div class="note">The two "with REER" columns follow different logic: at $52k take-home ignores the $9,360 contribution, at $124.8k it is lower than without REER. Recheck those formulas before relying on them. The REER saves about $2,725 in tax at $52k, and the sheet saves 10% of net pay ($287.50/month at $52k).</div><details><summary>Career ranges you researched</summary><ul><li>Software developer: $25 to $52.88/h ($52k to $110k)</li><li>Financial analyst: $25.10 to $60/h ($52k to $125k)</li><li>Computer engineer: $35.64 to $71.79/h ($74k to $149k)</li><li>IT specialist: $26.44 to $60.51/h ($55k to $126k)</li></ul></details><h2>Monthly cost by lifestyle</h2><div class="card wrap"><table><tr><th></th><th class="n">Apartment</th><th class="n">House</th><th class="n">Condo</th></tr><tr><td>Rent or mortgage</td><td class="n">$981</td><td class="n">$6,343</td><td class="n">$992</td></tr><tr><td>Electricity and heating</td><td class="n">$33</td><td class="n">$248</td><td class="n">$39</td></tr><tr><td>Phone and internet</td><td class="n">$167</td><td class="n">$398</td><td class="n">$167</td></tr><tr><td>Transit</td><td class="n">$93</td><td class="n">$186</td><td class="n">$93</td></tr><tr><td>Insurance (life, home, auto)</td><td class="n">$115</td><td class="n">$226</td><td class="n">$119</td></tr><tr><td>Groceries and restaurants</td><td class="n">$400</td><td class="n">$720</td><td class="n">$400</td></tr><tr><td>Health (gym, vitamins, medication)</td><td class="n">$130</td><td class="n">$350</td><td class="n">$130</td></tr><tr><td>Gifts, vacation, clothing</td><td class="n">$119</td><td class="n">$263</td><td class="n">$119</td></tr><tr><td>Interest-free Visa plan</td><td class="n">$11</td><td class="n">$11</td><td class="n">$11</td></tr><tr><td>Total per sheet, per month</td><td class="n">$2,047</td><td class="n">$9,013</td><td class="n">$2,017</td></tr><tr><td>Total per sheet, per year</td><td class="n">$25,342</td><td class="n">$110,538</td><td class="n">$25,696</td></tr><tr><td>Furniture, total</td><td class="n">$2,997</td><td class="n">$6,233</td><td class="n">$3,312</td></tr><tr><td>Paid up front</td><td class="n">$874</td><td class="n">$1,986</td><td class="n">$874</td></tr><tr><td>Financed, per month</td><td class="n">$177</td><td class="n">$354</td><td class="n">$203</td></tr></table></div><small>The listed lines do not add exactly to the sheet totals, which include financing items.</small><details><summary>Furniture and appliance list (apartment)</summary><ul><li>Fridge $976, stove $862, sofa $919</li><li>Table and chairs $708, kitchen supplies $425, bed $400, bed base $229</li><li>Dresser $265, rug $225, desk and chair $207, vacuum $195, microwave $171</li><li>Coffee table $115, shelf $80, hygiene $50, mirror $45, duvet $40, cleaners $30</li><li>Curtains, lamp, pillows, bedding: about $50 together</li><li>Sofa, fridge and stove are financed at $77, $81 and $72 per month</li></ul></details><details><summary>Apartment outlook (sheet projection)</summary><ul><li>Net pay $2,875/month, 10% saved ($287.50), expenses $2,047</li><li>Month 1 is $510 short because of $1,050 in purchases</li><li>From month 4 about $540/month is left over</li><li>Leftover builds to about $20.9k by month 47 and $27.1k by month 61</li></ul><p>The sheet also projects a condo over 10 years with two incomes (about $5,750 net per month) and a house over 5 years.</p></details><details><summary>Assumptions in the sheet</summary><ul><li>RRQ, RQAP, EI Canada and EI Québec deducted from pay</li><li>Condo and house loans: 4.5% interest, 25-year amortization</li></ul></details>
+<h2>Income and taxes</h2>
+  <div class="card wrap">
+    <table>
+      <tr>
+        <th></th>
+        <th class="n">$52k, no REER</th><th class="n">$52k, REER</th><th class="n">$124.8k, no REER</th><th class="n">$124.8k, REER</th>
+      </tr>
+      <tr>
+        <td>Gross salary</td>
+        <td class="n">$52,000</td><td class="n">$52,000</td><td class="n">$124,800</td><td class="n">$124,800</td>
+      </tr>
+      <tr>
+        <td>REER contribution (18%)</td><td class="n">none</td><td class="n">$9,360</td><td class="n">none</td><td class="n">$22,464</td>
+      </tr>
+      <tr>
+        <td>Québec income tax</td><td class="n">$7,291</td><td class="n">$5,970</td><td class="n">$32,024</td><td class="n">$16,855</td>
+      </tr>
+      <tr>
+        <td>Federal income tax</td><td class="n">$7,800</td><td class="n">$6,396</td><td class="n">$34,683</td><td class="n">$17,906</td>
+      </tr>
+      <tr>
+        <td>RRQ</td><td class="n">$3,328</td><td class="n">$2,729</td><td class="n">$7,613</td><td class="n">$7,613</td>
+      </tr>
+      <tr>
+        <td>RQAP</td><td class="n">$257</td><td class="n">$211</td><td class="n">$617</td><td class="n">$506</td>
+      </tr>
+      <tr>
+        <td>EI (Canada)</td>
+        <td class="n">$863</td><td class="n">$708</td><td class="n">$2,072</td><td class="n">$1,699</td>
+      </tr>
+      <tr>
+        <td>EI (Québec)</td>
+        <td class="n">$686</td><td class="n">$563</td><td class="n">$1,647</td><td class="n">$1,351</td>
+      </tr>
+      <tr>
+        <td>Total deductions</td>
+        <td class="n">$20,225</td><td class="n">$17,500</td><td class="n">$46,145</td><td class="n">$31,946</td>
+      </tr>
+      <tr>
+        <td>Take-home per sheet</td><td class="n">$31,775</td><td class="n">$34,500</td><td class="n">$78,655</td><td class="n">$78,091</td>
+      </tr>
+    </table>
+    </div>
+    <div class="note">The two "with REER" columns follow different logic: at $52k take-home ignores the $9,360 contribution, at $124.8k it is lower than without REER. Recheck those formulas before relying on them. The REER saves about $2,725 in tax at $52k, and the sheet saves 10% of net pay ($287.50/month at $52k).</div>
+    <details>
+      <summary>Career ranges you researched</summary>
+      <ul>
+        <li>Software developer: $25 to $52.88/h ($52k to $110k)</li>
+        <li>Financial analyst: $25.10 to $60/h ($52k to $125k)</li>
+        <li>Computer engineer: $35.64 to $71.79/h ($74k to $149k)</li>
+        <li>IT specialist: $26.44 to $60.51/h ($55k to $126k)</li>
+      </ul>
+    </details>
+<h2>Monthly cost by lifestyle</h2>
+  <div class="card wrap">
+    <table>
+      <tr>
+        <th></th>
+        <th class="n">Apartment</th><th class="n">House</th><th class="n">Condo</th></tr>
+      <tr>
+        <td>Rent or mortgage</td>
+        <td class="n">$981</td><td class="n">$6,343</td><td class="n">$992</td>
+      </tr>
+      <tr>
+        <td>Electricity and heating</td>
+        <td class="n">$33</td><td class="n">$248</td><td class="n">$39</td>
+      </tr>
+      <tr>
+        <td>Phone and internet</td><td class="n">$167</td><td class="n">$398</td><td class="n">$167</td>
+      </tr>
+      <tr>
+        <td>Transit</td><td class="n">$93</td><td class="n">$186</td><td class="n">$93</td>
+      </tr>
+      <tr>
+        <td>Insurance (life, home, auto)</td><td class="n">$115</td><td class="n">$226</td><td class="n">$119</td>
+      </tr>
+      <tr>
+        <td>Groceries and restaurants</td><td class="n">$400</td><td class="n">$720</td><td class="n">$400</td>
+      </tr>
+      <tr>
+        <td>Health (gym, vitamins, medication)</td><td class="n">$130</td><td class="n">$350</td><td class="n">$130</td>
+      </tr>
+      <tr>
+        <td>Gifts, vacation, clothing</td><td class="n">$119</td><td class="n">$263</td><td class="n">$119</td>
+      </tr>
+      <tr>
+        <td>Interest-free Visa plan</td><td class="n">$11</td><td class="n">$11</td><td class="n">$11</td>
+      </tr>
+      <tr>
+        <td>Total per sheet, per month</td><td class="n">$2,047</td><td class="n">$9,013</td><td class="n">$2,017</td>
+      </tr>
+      <tr>
+        <td>Total per sheet, per year</td><td class="n">$25,342</td><td class="n">$110,538</td><td class="n">$25,696</td>
+      </tr>
+      <tr>
+        <td>Furniture, total</td><td class="n">$2,997</td><td class="n">$6,233</td><td class="n">$3,312</td>
+      </tr>
+      <tr>
+        <td>Paid up front</td><td class="n">$874</td><td class="n">$1,986</td><td class="n">$874</td></tr>
+      <tr>
+        <td>Financed, per month</td><td class="n">$177</td><td class="n">$354</td><td class="n">$203</td>
+      </tr>
+    </table>
+  </div>
+  <small>The listed lines do not add exactly to the sheet totals, which include financing items.</small>
+  <details>
+    <summary>Furniture and appliance list (apartment)</summary>
+    <ul>
+      <li>Fridge $976, stove $862, sofa $919</li>
+      <li>Table and chairs $708, kitchen supplies $425, bed $400, bed base $229</li>
+      <li>Dresser $265, rug $225, desk and chair $207, vacuum $195, microwave $171</li>
+      <li>Coffee table $115, shelf $80, hygiene $50, mirror $45, duvet $40, cleaners $30</li>
+      <li>Curtains, lamp, pillows, bedding: about $50 together</li>
+      <li>Sofa, fridge and stove are financed at $77, $81 and $72 per month</li>
+    </ul>
+  </details>
+  <details>
+    <summary>Apartment outlook (sheet projection)</summary>
+    <ul>
+      <li>Net pay $2,875/month, 10% saved ($287.50), expenses $2,047</li>
+      <li>Month 1 is $510 short because of $1,050 in purchases</li>
+      <li>From month 4 about $540/month is left over</li>
+      <li>Leftover builds to about $20.9k by month 47 and $27.1k by month 61</li>
+    </ul>
+    <p>The sheet also projects a condo over 10 years with two incomes (about $5,750 net per month) and a house over 5 years.</p>
+  </details>
+  <details>
+    <summary>Assumptions in the sheet</summary>
+    <ul>
+      <li>RRQ, RQAP, EI Canada and EI Québec deducted from pay</li>
+      <li>Condo and house loans: 4.5% interest, 25-year amortization</li>
+    </ul>
+  </details>
 </section>
+
+<!-- 
+
+*******************************************************************
+                          Budget Grid 
+*******************************************************************
+  
+-->
+  
 <section id="grid" data-title="Budget Grid">
-<h2>Monthly budget grid</h2><div class="card"><p style="margin:0">Enter what you and your partner earn, save and spend each month. Totals update as you type.</p></div><div id="bgs"></div><div id="bgd"></div>
+<h2>Monthly budget grid</h2>
+  <div class="card">
+    <p style="margin:0">Enter what you and your partner earn, save and spend each month. Totals update as you type.</p>
+  </div>
+  <div id="bgs"></div>
+  <div id="bgd"></div>
 </section>
+
+<!-- 
+
+*******************************************************************
+                          Cash Flow 
+*******************************************************************
+  
+-->
+
 <section id="cash" data-title="Cash Flow">
-<h2>Income and expenses by month</h2><div class="card"><select id="cy" class="i" style="text-align:left"></select><div id="cft"></div></div><h2>Net by year</h2><div id="cfy"></div>
+<h2>Income and expenses by month</h2>
+  <div class="card">
+    <select id="cy" class="i" style="text-align:left"></select>
+    <div id="cft"></div>
+  </div>
+  <h2>Net by year</h2>
+  <div id="cfy"></div>
 </section>
+
+<!-- 
+
+*******************************************************************
+                          Net Worth 
+*******************************************************************
+  
+-->
+  
 <section id="net" data-title="Net Worth">
-<h2>What you own and owe</h2><div id="nws" class="grid"></div><div id="nwd"></div><h2>House check</h2><div id="nwh" class="card"></div><h2>Retirement check</h2><div id="nwr" class="card"></div>
+<h2>What you own and owe</h2>
+  <div id="nws" class="grid"></div>
+  <div id="nwd"></div>
+  <h2>House check</h2>
+  <div id="nwh" class="card"></div>
+  <h2>Retirement check</h2>
+  <div id="nwr" class="card"></div>
 </section>
+
+<!-- 
+
+*******************************************************************
+                              Home 
+*******************************************************************
+  
+-->
+  
 <section id="home" data-title="Home">
 <h2>Listings you tracked</h2><div class="card wrap"><table><tr><th>Type</th><th class="n">Count</th><th class="n">Price</th><th class="n">Size</th><th class="n">Heat + power</th></tr><tr><td>Apartments</td><td class="n">2</td><td class="n">$1,875 and $2,050/mo</td><td class="n">2 bed, 1 bath</td><td class="n">$690 and $890/yr</td></tr><tr><td>Condos</td><td class="n">6</td><td class="n">$1,766 to $2,314/mo, avg $1,983</td><td class="n">2 bed, 686 to 1,063 sq ft</td><td class="n">avg $938/yr</td></tr><tr><td>Houses</td><td class="n">6</td><td class="n">$749k to $965k, avg $872k</td><td class="n">3 to 4 bed, 2.3 bath avg</td><td class="n">avg $2,970/yr</td></tr></table></div><details><summary>Condo costs (average of 6)</summary><ul><li>Condo prices: $349k to $448k, average $388k</li><li>Monthly payment $1,983 with $30k down</li><li>Condo fees $274/month, municipal tax $2,158/yr, school tax $242/yr</li></ul></details><details><summary>House details (6 listings)</summary><div class="card wrap"><table><tr><th></th><th class="n">Price</th><th class="n">Bed / bath</th><th class="n">Heat + power</th><th class="n">Municipal tax</th></tr><tr><td>House 1</td><td class="n">$965k</td><td class="n">4 / 3</td><td class="n">$2,890</td><td class="n">$5,301</td></tr><tr><td>House 2</td><td class="n">$875k</td><td class="n">4 / 2+1</td><td class="n">$2,010</td><td class="n">$5,214</td></tr><tr><td>House 3</td><td class="n">$749k</td><td class="n">4 / 2+1</td><td class="n">$3,150</td><td class="n">$3,261</td></tr><tr><td>House 4</td><td class="n">$899k</td><td class="n">3+1 / 1+1</td><td class="n">$3,670</td><td class="n">$5,098</td></tr><tr><td>House 5</td><td class="n">$945k</td><td class="n">4 / 2</td><td class="n">$4,240</td><td class="n">$5,321</td></tr><tr><td>House 6</td><td class="n">$800k</td><td class="n">3 / 2</td><td class="n">$1,860</td><td class="n">$4,146</td></tr><tr><td>Average</td><td class="n">$872k</td><td class="n">3.8 / 2.3</td><td class="n">$2,970</td><td class="n">$4,724</td></tr></table></div><small>School tax averages $518/yr. Minimum down payment per the sheet: 5% under $500k and 10% above, on a 1-year closed term.</small></details><h2>Your own house calculator</h2><div id="hc" class="card"></div><h2>Revised house plan: $450-500k</h2>
 <div class="card"><p style="margin:0">5% down is the minimum, 10% the target, and 20% is not needed for this plan. Below 20% you pay mortgage insurance.</p></div>
@@ -130,6 +331,14 @@ input.i,select.i{width:100%;min-width:0;padding:6px 8px;border:1px solid var(--l
 <details><summary>Renovation budget (up to $175k)</summary><ul><li>Kitchen $50k, bathroom $30k, living room $35k</li><li>6 bedrooms at $10k each</li></ul><p>Phase these over years rather than at purchase.</p></details>
 <details><summary>Cost of buying below 20% down</summary><p>Under 20% down you pay mortgage default insurance, added to the loan. A higher down payment cuts both the monthly cost and this premium.</p></details>
 </section>
+
+<!-- 
+
+*******************************************************************
+                       Wedding & Family
+*******************************************************************
+  
+-->
 
 <section id="life" data-title="Wedding & Family">
 <h2>Revised wedding: $25-33k</h2>
@@ -160,6 +369,14 @@ input.i,select.i{width:100%;min-width:0;padding:6px 8px;border:1px solid var(--l
 <details><summary>Monthly child costs in your timeline</summary><p>The planner steps up from about $200/month in the first year to roughly $830 to $1,700/month as children grow, on top of the house.</p></details>
 </section>
 
+<!-- 
+
+*******************************************************************
+                          Retirement
+*******************************************************************
+  
+-->
+  
 <section id="retire" data-title="Retirement">
 <h2>Investing after the house</h2><div class="card"><p style="margin:0">Aim for 15-20% of combined gross income. Example: $19,500/yr at an illustrative 6% return.</p></div><div class="card wrap"><table><tr><th>Years</th><th class="n">Portfolio</th></tr><tr><td>5</td><td class="n" data-k="e127">$110k</td></tr><tr><td>10</td><td class="n" data-k="e128">$256k</td></tr><tr><td>15</td><td class="n" data-k="e129">$454k</td></tr><tr><td>20</td><td class="n" data-k="e130">$718k</td></tr><tr><td>25</td><td class="n" data-k="e131">$1.08M</td></tr></table></div><small>Stopping for a few years costs a lot. Even $500/month counts.</small><h2>How much you need</h2>
 <div class="card"><p style="margin:0">Spending <b>$108,152/yr</b> in retirement means <b>$2,703,789</b> with the rule of 25. Notably, this is close to the $110.5k of your house scenario.</p></div>
@@ -176,6 +393,14 @@ input.i,select.i{width:100%;min-width:0;padding:6px 8px;border:1px solid var(--l
 <details><summary>Limits for 2026</summary><ul><li>REER: 18% of last year's earnings, up to $33,810 (unused room carries over)</li><li>CELI: $7,000/yr, or up to $109,000 total if never used since 2009</li><li>REER withdrawal tax withheld in Québec: 19%, 24%, 29% by amount</li></ul></details>
 </section>
 
+<!-- 
+
+*******************************************************************
+                        Savings & Aid 
+*******************************************************************
+  
+-->
+
 <section id="aid" data-title="Savings & Aid">
 <h2>Québec and federal accounts</h2>
 <details open><summary>CELIAPP (first home)<span class="tag">Home</span></summary><ul><li>$8,000/yr, $40,000 lifetime each, so up to $80,000 for two. Deductible on contribution</li><li>Withdrawals for a first home are tax-free</li><li>Room only starts once the account is open, so open one soon, even with a small deposit</li><li>Unused room carries forward, up to $8,000</li></ul></details>
@@ -188,6 +413,10 @@ input.i,select.i{width:100%;min-width:0;padding:6px 8px;border:1px solid var(--l
 <details><summary>Retirement and everyday income</summary><ul><li>Fonds de solidarité FTQ and Fondaction: combined federal and Québec credit of about 30%, on up to $5,000 (confirm current rates)</li><li>Ask your employer about RVER or a matching contribution</li><li>Solidarity tax credit and GST credit: already in your budget grid, claimed automatically when you file</li><li>Always file your tax return, even on low income, to receive these credits</li></ul></details>
 <div class="note">Rules change often. Check amounts on Revenu Québec and Canada Revenue Agency pages, or with an accountant, before you rely on them.</div>
 </section>
+
+<!-- 
+  Scripts
+-->
 
 </main>
 <script>
