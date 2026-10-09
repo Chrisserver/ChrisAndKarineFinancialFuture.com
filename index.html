@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>My Financial Roadmap</title>
+<style>
+:root{--bg:#f6f7f4;--card:#fff;--ink:#1d2a24;--mut:#66736c;--line:#e2e6e0;--acc:#2f6f5a;--acc2:#e8f1ed;--warn:#fff3dc;--warnink:#7a5200;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141a17;--card:#1c2420;--ink:#e8eee9;--mut:#9aa8a0;--line:#2c3630;--acc:#6fcaa8;--acc2:#22332c;--warn:#3a2f14;--warnink:#f0cf8a}}
+:root[data-theme="dark"]{--bg:#141a17;--card:#1c2420;--ink:#e8eee9;--mut:#9aa8a0;--line:#2c3630;--acc:#6fcaa8;--acc2:#22332c;--warn:#3a2f14;--warnink:#f0cf8a}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{padding:28px 20px 8px;max-width:920px;margin:auto}
+h1{margin:0;font-size:1.6rem}header p{margin:4px 0 0;color:var(--mut)}
+nav{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5;border-bottom:1px solid var(--line)}
+.tabs{max-width:920px;margin:auto;display:flex;gap:6px;overflow-x:auto;padding:10px 20px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:8px 14px;border-radius:999px;font:inherit;font-size:.9rem;cursor:pointer}
+.tabs button.on{background:var(--acc);border-color:var(--acc);color:#fff}
+@media (prefers-color-scheme:dark){.tabs button.on{color:#10201a}}
+main{max-width:920px;margin:auto;padding:18px 20px 60px}
+section{display:none}section.on{display:block}
+h2{font-size:1.15rem;margin:26px 0 10px}h2:first-child{margin-top:4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.big{font-size:1.5rem;font-weight:700;color:var(--acc)}.lbl{color:var(--mut);font-size:.85rem}
+.note{background:var(--warn);color:var(--warnink);border-radius:12px;padding:10px 14px;font-size:.92rem;margin:12px 0}
+.wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap}th{color:var(--mut);font-weight:600}
+td.n,th.n{text-align:right}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:2px 16px;margin: 8px 0}
+summary{cursor:pointer;padding:12px 0;font-weight:600}
+details[open] summary{border-bottom:1px solid var(--line);margin-bottom:8px}
+details p,details ul{margin:8px 0 12px}ul{padding-left:20px}li{margin:4px 0}
+.tl{list-style:none;padding:0;border-left:3px solid var(--acc2);margin-left:6px}
+.tl li{padding:2px 0 10px 16px;position:relative}.tl li:before{content:"";position:absolute;left:-8px;top:8px;width:11px;height:11px;border-radius:50%;background:var(--acc)}
+.tl b{display:block}.tl span{color:var(--mut);font-size:.9rem}
+.bar{display:flex;align-items:center;gap:10px;margin:7px 0;font-size:.92rem}
+.bar i{display:block;height:10px;border-radius:6px;background:var(--acc)}.bar .t{flex:0 0 130px}.bar .v{flex:none;color:var(--mut)}
+.tag{display:inline-block;font-size:.72rem;background:var(--acc2);color:var(--acc);border-radius:6px;padding:1px 7px;margin-left:6px;vertical-align:middle}
+small{color:var(--mut)}
+input,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px 10px;width:100%}
+.f{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}.f label{font-size:.8rem;color:var(--mut);display:block}
+.res{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:14px}.res b{display:block;font-size:1.2rem;color:var(--acc)}
+.chk{display:flex;gap:10px;align-items:center;padding:6px 0;border-bottom:1px solid var(--line)}.chk input[type=checkbox]{width:20px;height:20px;flex:none}
+.chk.d span{text-decoration:line-through;color:var(--mut)}.chk span{flex:1}.chk button,.add button{border:0;background:var(--acc);color:#fff;border-radius:10px;padding:8px 14px;font:inherit;cursor:pointer}
+.chk button{background:none;color:var(--mut);padding:4px 8px}.add{display:flex;gap:8px;margin-top:10px}
+#sync{font-size:.8rem;color:var(--mut);margin:0 0 8px}
+.edit [data-k]{outline:1px dashed var(--acc);outline-offset:2px;border-radius:4px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+#eb{display:none;border:1px solid var(--acc);background:var(--card);color:var(--acc);border-radius:999px;padding:7px 14px;font:inherit;font-size:.9rem;cursor:pointer}
+#eb.on{background:var(--acc);color:#fff}
+.add{display:flex;gap:8px;margin-top:10px}.add input{flex:1;min-width:0;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit}
+.add button,.x{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:8px 12px;font:inherit;cursor:pointer}
+#todo{list-style:none;padding:0;margin:0}#todo li{display:flex;align-items:center;gap:10px;margin:0;padding:8px 0;border-bottom:1px solid var(--line)}
+#todo li span{flex:1}#todo li.d span{text-decoration:line-through;color:var(--mut)}
+#st{font-size:.8rem;color:var(--mut);margin:6px 0 0}
+.gr{display:grid;grid-template-columns:1fr 88px 88px;gap:6px;align-items:center;padding:4px 0;border-bottom:1px solid var(--line);font-size:.88rem}
+.gr.g3{grid-template-columns:1fr 78px 78px 78px}.gr.hd{color:var(--mut);font-size:.78rem;border:0}
+input.i,select.i{width:100%;min-width:0;padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit;text-align:right}
+.gt{float:right;color:var(--acc);font-weight:600}.res{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line)}.res b{color:var(--acc)}
+.neg{color:#c0392b!important}
+.ok{color:var(--acc)!important}.bt h3{margin:0 0 6px;font-size:1rem}.bt .gr{grid-template-columns:1fr 130px}.bt small{display:block;color:var(--mut)}
+</style>
+</head>
+<body>
+<header><div class="top"><h1>My Financial Roadmap</h1><button id="eb">Edit</button></div><p>Budget, home, wedding, family, retirement and business, in one place. Québec rules, 2026 figures. <span id="st"></span></p></header>
+<nav><div class="tabs" id="tabs"></div></nav>
+<main>
+
+<!-- 
+
+*******************************************************************
+                            OverView 
+*******************************************************************
+  
+-->
+
+<section id="overview" data-title="Overview">
+<h2>The big numbers</h2><div class="grid"><div class="card"><div class="big" data-k="e101">$80-100k</div><div class="lbl">cash around the house purchase, emergency fund included</div></div><div class="card"><div class="big" data-k="e102">$25-33k</div><div class="lbl">wedding total; family and gifts cover much of it</div></div><div class="card"><div class="big" data-k="e103">$10-12k</div><div class="lbl">honeymoon: Egypt, Greece, Italy</div></div><div class="card"><div class="big" data-k="e104">$25-35k</div><div class="lbl">emergency fund to keep after buying</div></div></div><h2>Shared to-do</h2>
+<div class="card"><ul id="todo"></ul><div class="add"><input id="ti" placeholder="Add a task for both of you" maxlength="120"><button id="ta">Add</button></div></div>
+<h2>Your plan in order</h2>
+<ul class="tl">
+<li><b>2026-2027: wedding and honeymoon</b><span>Build house capital, keep investing, open a CELIAPP each</span></li>
+<li><b>2027-2028: buy the house</b><span>$450-500k target, 5% minimum and 10% target down</span></li>
+<li><b>2028-2030: build the base</b><span>Investments, $10-15k family fund, 6 months of expenses</span></li>
+<li><b>2030 onward: start a family</b><span>When you both feel ready</span></li>
+</ul>
+<h2>Cash buckets to aim for</h2>
+<div class="grid"><div class="card"><div class="big" data-k="e105">$5-10k</div><div class="lbl">house repairs reserve, separate from emergency</div></div><div class="card"><div class="big" data-k="e106">$25-35k</div><div class="lbl">emergency fund, untouchable</div></div><div class="card"><div class="big" data-k="e107">$10-15k</div><div class="lbl">family fund, built before baby #1</div></div><div class="card"><div class="big" data-k="e108">15-20%</div><div class="lbl">of combined gross income to long-term wealth</div></div></div>
+<h2>Where each dollar goes</h2>
+<div class="card"><ol style="margin:0;padding-left:20px">
+<li>Until the wedding: 50-60% of surplus to house, wedding and honeymoon cash, 40-50% to investing (at least $500/month)</li>
+<li>Both of you open a CELIAPP: deductible, tax-free for the house</li>
+<li>After the wedding: house first, still $500-1,000/month invested</li>
+<li>After the house: 15-20% of combined gross income to long-term wealth (CELI, REER, employer plans)</li>
+</ol></div>
+<div class="note">Money you need within about 2 years belongs in high-interest savings or GICs, not stocks. And never spend every dollar on the house: a $475k house with a $30k emergency fund beats a $500k house with $3k left.</div>
+<details><summary>Original spreadsheet timeline and checks</summary><ul><li>Proposal Jun 2027, wedding Jun 2028, honeymoon Sep 2028, house Aug 2029, first child Sep 2029</li><li>REER cap in the old sheet is the 2024 figure ($31,560). For 2026 it is $33,810.</li><li>The old $9,013/month house scenario exceeds net pay at $124.8k; it needs two incomes or a cheaper home.</li></ul></details>
+</section>
+
+<!-- 
+
+*******************************************************************
+                             Budget 
+*******************************************************************
+  
+-->
+
+<section id="big" data-title="Big Three">
+<h2>Wedding, honeymoon and house</h2>
+<div id="bts" class="grid"></div>
+<h2>Cost, what you invest, what others give</h2>
+<div id="btb"></div>
+<small>Difference = cost minus what you invest minus what others give. A positive number is still left to cover; a negative number means you are ahead. Grey numbers are placeholders from your plan: wedding $25-33k, honeymoon $10-12k, house cash needed $55-70k.</small>
+</section>
+<section id="budget" data-title="Budget">
+<h2>Income and taxes</h2>
+  <div class="card wrap">
+    <table>
+      <tr>
+        <th></th>
+        <th class="n">$52k, no REER</th><th class="n">$52k, REER</th><th class="n">$124.8k, no REER</th><th class="n">$124.8k, REER</th>
+      </tr>
+      <tr>
+        <td>Gross salary</td>
+        <td class="n">$52,000</td><td class="n">$52,000</td><td class="n">$124,800</td><td class="n">$124,800</td>
+      </tr>
+      <tr>
+        <td>REER contribution (18%)</td><td class="n">none</td><td class="n">$9,360</td><td class="n">none</td><td class="n">$22,464</td>
+      </tr>
+      <tr>
+        <td>Québec income tax</td><td class="n">$7,291</td><td class="n">$5,970</td><td class="n">$32,024</td><td class="n">$16,855</td>
+      </tr>
+      <tr>
+        <td>Federal income tax</td><td class="n">$7,800</td><td class="n">$6,396</td><td class="n">$34,683</td><td class="n">$17,906</td>
+      </tr>
+      <tr>
+        <td>RRQ</td><td class="n">$3,328</td><td class="n">$2,729</td><td class="n">$7,613</td><td class="n">$7,613</td>
+      </tr>
+      <tr>
+        <td>RQAP</td><td class="n">$257</td><td class="n">$211</td><td class="n">$617</td><td class="n">$506</td>
+      </tr>
+      <tr>
+        <td>EI (Canada)</td>
+        <td class="n">$863</td><td class="n">$708</td><td class="n">$2,072</td><td class="n">$1,699</td>
+      </tr>
+      <tr>
+        <td>EI (Québec)</td>
+        <td class="n">$686</td><td class="n">$563</td><td class="n">$1,647</td><td class="n">$1,351</td>
+      </tr>
+      <tr>
+        <td>Total deductions</td>
+        <td class="n">$20,225</td><td class="n">$17,500</td><td class="n">$46,145</td><td class="n">$31,946</td>
+      </tr>
+      <tr>
+        <td>Take-home per sheet</td><td class="n">$31,775</td><td class="n">$34,500</td><td class="n">$78,655</td><td class="n">$78,091</td>
+      </tr>
+    </table>
+    </div>
+    <div class="note">The two "with REER" columns follow different logic: at $52k take-home ignores the $9,360 contribution, at $124.8k it is lower than without REER. Recheck those formulas before relying on them. The REER saves about $2,725 in tax at $52k, and the sheet saves 10% of net pay ($287.50/month at $52k).</div>
+    <details>
+      <summary>Career ranges you researched</summary>
+      <ul>
+        <li>Software developer: $25 to $52.88/h ($52k to $110k)</li>
+        <li>Financial analyst: $25.10 to $60/h ($52k to $125k)</li>
+        <li>Computer engineer: $35.64 to $71.79/h ($74k to $149k)</li>
+        <li>IT specialist: $26.44 to $60.51/h ($55k to $126k)</li>
+      </ul>
+    </details>
+<h2>Monthly cost by lifestyle</h2>
+  <div class="card wrap">
+    <table>
+      <tr>
+        <th></th>
+        <th class="n">Apartment</th><th class="n">House</th><th class="n">Condo</th></tr>
+      <tr>
+        <td>Rent or mortgage</td>
+        <td class="n">$981</td><td class="n">$6,343</td><td class="n">$992</td>
+      </tr>
+      <tr>
+        <td>Electricity and heating</td>
+        <td class="n">$33</td><td class="n">$248</td><td class="n">$39</td>
+      </tr>
+      <tr>
+        <td>Phone and internet</td><td class="n">$167</td><td class="n">$398</td><td class="n">$167</td>
+      </tr>
+      <tr>
+        <td>Transit</td><td class="n">$93</td><td class="n">$186</td><td class="n">$93</td>
+      </tr>
+      <tr>
+        <td>Insurance (life, home, auto)</td><td class="n">$115</td><td class="n">$226</td><td class="n">$119</td>
+      </tr>
+      <tr>
+        <td>Groceries and restaurants</td><td class="n">$400</td><td class="n">$720</td><td class="n">$400</td>
+      </tr>
+      <tr>
+        <td>Health (gym, vitamins, medication)</td><td class="n">$130</td><td class="n">$350</td><td class="n">$130</td>
+      </tr>
+      <tr>
+        <td>Gifts, vacation, clothing</td><td class="n">$119</td><td class="n">$263</td><td class="n">$119</td>
+      </tr>
+      <tr>
+        <td>Interest-free Visa plan</td><td class="n">$11</td><td class="n">$11</td><td class="n">$11</td>
+      </tr>
+      <tr>
+        <td>Total per sheet, per month</td><td class="n">$2,047</td><td class="n">$9,013</td><td class="n">$2,017</td>
+      </tr>
+      <tr>
+        <td>Total per sheet, per year</td><td class="n">$25,342</td><td class="n">$110,538</td><td class="n">$25,696</td>
+      </tr>
+      <tr>
+        <td>Furniture, total</td><td class="n">$2,997</td><td class="n">$6,233</td><td class="n">$3,312</td>
+      </tr>
+      <tr>
+        <td>Paid up front</td><td class="n">$874</td><td class="n">$1,986</td><td class="n">$874</td></tr>
+      <tr>
+        <td>Financed, per month</td><td class="n">$177</td><td class="n">$354</td><td class="n">$203</td>
+      </tr>
+    </table>
+  </div>
+  <small>The listed lines do not add exactly to the sheet totals, which include financing items.</small>
+  <details>
+    <summary>Furniture and appliance list (apartment)</summary>
+    <ul>
+      <li>Fridge $976, stove $862, sofa $919</li>
+      <li>Table and chairs $708, kitchen supplies $425, bed $400, bed base $229</li>
+      <li>Dresser $265, rug $225, desk and chair $207, vacuum $195, microwave $171</li>
+      <li>Coffee table $115, shelf $80, hygiene $50, mirror $45, duvet $40, cleaners $30</li>
+      <li>Curtains, lamp, pillows, bedding: about $50 together</li>
+      <li>Sofa, fridge and stove are financed at $77, $81 and $72 per month</li>
+    </ul>
+  </details>
+  <details>
+    <summary>Apartment outlook (sheet projection)</summary>
+    <ul>
+      <li>Net pay $2,875/month, 10% saved ($287.50), expenses $2,047</li>
+      <li>Month 1 is $510 short because of $1,050 in purchases</li>
+      <li>From month 4 about $540/month is left over</li>
+      <li>Leftover builds to about $20.9k by month 47 and $27.1k by month 61</li>
+    </ul>
+    <p>The sheet also projects a condo over 10 years with two incomes (about $5,750 net per month) and a house over 5 years.</p>
+  </details>
+  <details>
+    <summary>Assumptions in the sheet</summary>
+    <ul>
+      <li>RRQ, RQAP, EI Canada and EI Québec deducted from pay</li>
+      <li>Condo and house loans: 4.5% interest, 25-year amortization</li>
+    </ul>
+  </details>
+</section>
+
+<!-- 
+
+*******************************************************************
+                          Budget Grid 
+*******************************************************************
+  
+-->
+  
+<section id="grid" data-title="Budget Grid">
+<h2>Monthly budget grid</h2>
+  <div class="card">
+    <p style="margin:0">Enter what you and your partner earn, save and spend each month. Totals update as you type.</p>
+  </div>
+  <div id="bgs"></div>
+  <div id="bgd"></div>
+</section>
+
+<!-- 
+
+*******************************************************************
+                          Cash Flow 
+*******************************************************************
+  
+-->
+
+<section id="cash" data-title="Cash Flow">
+<h2>Income and expenses by month</h2>
+  <div class="card">
+    <select id="cy" class="i" style="text-align:left"></select>
+    <div id="cft"></div>
+  </div>
+  <h2>Net by year</h2>
+  <div id="cfy"></div>
+</section>
+
+<!-- 
+
+*******************************************************************
+                          Net Worth 
+*******************************************************************
+  
+-->
+  
+<section id="net" data-title="Net Worth">
+<h2>What you own and owe</h2>
+  <div id="nws" class="grid"></div>
+  <div id="nwd"></div>
+  <h2>House check</h2>
+  <div id="nwh" class="card"></div>
+  <h2>Retirement check</h2>
+  <div id="nwr" class="card"></div>
+</section>
+
+<!-- 
+
+*******************************************************************
+                              Home 
+*******************************************************************
+  
+-->
+  
+<section id="home" data-title="Home">
+<h2>Listings you tracked</h2><div class="card wrap"><table><tr><th>Type</th><th class="n">Count</th><th class="n">Price</th><th class="n">Size</th><th class="n">Heat + power</th></tr><tr><td>Apartments</td><td class="n">2</td><td class="n">$1,875 and $2,050/mo</td><td class="n">2 bed, 1 bath</td><td class="n">$690 and $890/yr</td></tr><tr><td>Condos</td><td class="n">6</td><td class="n">$1,766 to $2,314/mo, avg $1,983</td><td class="n">2 bed, 686 to 1,063 sq ft</td><td class="n">avg $938/yr</td></tr><tr><td>Houses</td><td class="n">6</td><td class="n">$749k to $965k, avg $872k</td><td class="n">3 to 4 bed, 2.3 bath avg</td><td class="n">avg $2,970/yr</td></tr></table></div><details><summary>Condo costs (average of 6)</summary><ul><li>Condo prices: $349k to $448k, average $388k</li><li>Monthly payment $1,983 with $30k down</li><li>Condo fees $274/month, municipal tax $2,158/yr, school tax $242/yr</li></ul></details><details><summary>House details (6 listings)</summary><div class="card wrap"><table><tr><th></th><th class="n">Price</th><th class="n">Bed / bath</th><th class="n">Heat + power</th><th class="n">Municipal tax</th></tr><tr><td>House 1</td><td class="n">$965k</td><td class="n">4 / 3</td><td class="n">$2,890</td><td class="n">$5,301</td></tr><tr><td>House 2</td><td class="n">$875k</td><td class="n">4 / 2+1</td><td class="n">$2,010</td><td class="n">$5,214</td></tr><tr><td>House 3</td><td class="n">$749k</td><td class="n">4 / 2+1</td><td class="n">$3,150</td><td class="n">$3,261</td></tr><tr><td>House 4</td><td class="n">$899k</td><td class="n">3+1 / 1+1</td><td class="n">$3,670</td><td class="n">$5,098</td></tr><tr><td>House 5</td><td class="n">$945k</td><td class="n">4 / 2</td><td class="n">$4,240</td><td class="n">$5,321</td></tr><tr><td>House 6</td><td class="n">$800k</td><td class="n">3 / 2</td><td class="n">$1,860</td><td class="n">$4,146</td></tr><tr><td>Average</td><td class="n">$872k</td><td class="n">3.8 / 2.3</td><td class="n">$2,970</td><td class="n">$4,724</td></tr></table></div><small>School tax averages $518/yr. Minimum down payment per the sheet: 5% under $500k and 10% above, on a 1-year closed term.</small></details><h2>Your own house calculator</h2><div id="hc" class="card"></div><h2>Revised house plan: $450-500k</h2>
+<div class="card"><p style="margin:0">5% down is the minimum, 10% the target, and 20% is not needed for this plan. Below 20% you pay mortgage insurance.</p></div>
+<div class="card wrap"><table><tr><th>On a $500k house</th><th class="n">5% down</th><th class="n">10% down</th></tr><tr><td>Down payment</td><td class="n" data-k="e109">$25,000</td><td class="n" data-k="e110">$50,000</td></tr><tr><td>Base mortgage</td><td class="n" data-k="e111">$475,000</td><td class="n" data-k="e112">$450,000</td></tr><tr><td>Insurance rate</td><td class="n" data-k="e113">4.0%</td><td class="n" data-k="e114">3.1%</td></tr><tr><td>Insurance premium</td><td class="n" data-k="e115">$19,000</td><td class="n" data-k="e116">$13,950</td></tr><tr><td>Mortgage after premium</td><td class="n" data-k="e117">~$494,000</td><td class="n" data-k="e118">~$463,950</td></tr></table></div>
+<small>Québec sales tax on the premium is paid in cash, not added to the mortgage.</small>
+<details open><summary>Cash needed to buy</summary><ul><li>Down payment $40-50k, closing costs $8-12k, immediate house expenses $5-10k: about $55-70k</li><li>Plus a $20-35k emergency fund that stays untouched, for $80-100k total</li><li>Do not sacrifice the emergency fund to go from 7% to 10% down</li></ul></details>
+<details><summary>CELIAPP and RAP for two</summary><p>Each of you can hold $40,000 in a CELIAPP, up to $80,000 combined, deductible and tax-free for a first home. You can add up to $60,000 each from the Home Buyers' Plan if you ever need the flexibility.</p></details>
+<h2>Original spreadsheet: comparison</h2>
+<div class="card wrap"><table>
+<tr><th></th><th class="n">Apartments</th><th class="n">Condos</th><th class="n">Houses</th></tr>
+<tr><td>Price</td><td class="n" data-k="e29">$1,875 to 2,050/mo</td><td class="n" data-k="e30">avg ~$388k</td><td class="n" data-k="e31">$749k to 965k</td></tr>
+<tr><td>Monthly</td><td class="n" data-k="e32">rent</td><td class="n" data-k="e33">$1,765 to 2,314</td><td class="n" data-k="e34">$6,343 avg</td></tr>
+<tr><td>Bedrooms</td><td class="n" data-k="e35">2</td><td class="n" data-k="e36">2</td><td class="n" data-k="e37">3.8 avg</td></tr>
+<tr><td>Heat + power</td><td class="n" data-k="e38">$690 to 890/yr</td><td class="n" data-k="e39">$938/yr avg</td><td class="n" data-k="e40">$2,970/yr avg</td></tr>
+<tr><td>Taxes</td><td class="n" data-k="e41">none</td><td class="n" data-k="e42">$2,158 + $242</td><td class="n" data-k="e43">$4,724 + $518</td></tr>
+</table></div>
+<small>Condo figures: 4.5% interest, 25-year amortization, $30k down. House figures: 1-year closed term. Your listings were in Pointe-Claire, Pierrefonds and similar areas.</small>
+<div class="note">Your current search is Hudson. Swapping these comparables for Hudson listings will give a more accurate budget.</div>
+</section>
+
+<!-- 
+
+*******************************************************************
+                       Wedding & Family
+*******************************************************************
+  
+-->
+
+<section id="life" data-title="Wedding & Family">
+<h2>Revised wedding: $25-33k</h2>
+<div class="card wrap"><table><tr><th>Component</th><th class="n">Budget</th></tr><tr><td>Château Vaudreuil</td><td class="n" data-k="e119">$15-18k</td></tr><tr><td>Church</td><td class="n" data-k="e120">$3-5k</td></tr><tr><td>Everything else</td><td class="n" data-k="e121">$7-10k</td></tr><tr><td>Total</td><td class="n" data-k="e122">$25-33k</td></tr></table></div>
+<small>Parents are covering much of it. Plan with $10-15k of your own money as a buffer, and treat family contributions as a bonus, not a given.</small>
+<details><summary>"Everything else" covers</summary><p>Attire, photography, rings, flowers, invitations, music, hair and makeup, transportation and miscellaneous.</p></details>
+<details><summary>Wedding gift rule (example: $15,000 in gifts)</summary><ul><li>First $5,000: replace what you spent personally</li><li>Next $5,000: house fund</li><li>Final $5,000: long-term investments</li></ul></details>
+<h2>Honeymoon: $10-12k</h2>
+<div class="card wrap"><table><tr><th>Stop</th><th class="n">Budget</th></tr><tr><td>Egypt</td><td class="n" data-k="e123">$2-3k</td></tr><tr><td>Greece</td><td class="n" data-k="e124">$3-4k</td></tr><tr><td>Italy</td><td class="n" data-k="e125">$2-3k</td></tr><tr><td>Flights and misc.</td><td class="n" data-k="e126">$1.5-2k</td></tr></table></div>
+<small>$12k is the ceiling. The boat license is a separate skill, not a honeymoon expense.</small>
+<h2>Before baby #1</h2>
+<div class="card"><ul style="margin:0"><li>No consumer debt (credit cards, high-interest loans)</li><li>Emergency fund of 6 months of essentials, $25-35k</li><li>Separate family fund of $10-15k; leftovers become education savings</li><li>A plan for parental-leave income drops</li></ul></div>
+<details><summary>Government help (confirm current amounts)</summary><ul><li>Canada Child Benefit, July 2026 to June 2027: up to $8,157/yr per child under 6, $6,883 for ages 6 to 17</li><li>Québec Family Allowance 2026: up to $3,068 per child</li><li>Treat these as bonus money, not budget money</li></ul></details>
+</section>
+  
+<!-- 
+
+*******************************************************************
+                          Retirement
+*******************************************************************
+  
+-->
+  
+<section id="retire" data-title="Retirement">
+<h2>Investing after the house</h2><div class="card"><p style="margin:0">Aim for 15-20% of combined gross income. Example: $19,500/yr at an illustrative 6% return.</p></div><div class="card wrap"><table><tr><th>Years</th><th class="n">Portfolio</th></tr><tr><td>5</td><td class="n" data-k="e127">$110k</td></tr><tr><td>10</td><td class="n" data-k="e128">$256k</td></tr><tr><td>15</td><td class="n" data-k="e129">$454k</td></tr><tr><td>20</td><td class="n" data-k="e130">$718k</td></tr><tr><td>25</td><td class="n" data-k="e131">$1.08M</td></tr></table></div><small>Stopping for a few years costs a lot. Even $500/month counts.</small><h2>How much you need</h2>
+<div class="card"><p style="margin:0">Spending <b>$108,152/yr</b> in retirement means <b>$2,703,789</b> with the rule of 25. Notably, this is close to the $110.5k of your house scenario.</p></div>
+<h2>Length of retirement vs savings needed</h2>
+<div class="card wrap"><table>
+<tr><th>Years</th><th class="n">Needed</th><th class="n">Vs rule of 25</th></tr>
+<tr><td>20</td><td class="n" data-k="e44">$2.16M</td><td class="n" data-k="e45">-$541k</td></tr>
+<tr><td>25</td><td class="n" data-k="e46">$2.70M</td><td class="n" data-k="e47">0</td></tr>
+<tr><td>30</td><td class="n" data-k="e48">$3.24M</td><td class="n" data-k="e49">+$541k</td></tr>
+<tr><td>40</td><td class="n" data-k="e50">$4.33M</td><td class="n" data-k="e51">+$1.62M</td></tr>
+<tr><td>50</td><td class="n" data-k="e52">$5.41M</td><td class="n" data-k="e53">+$2.70M</td></tr>
+</table></div>
+<details><summary>Income sources in retirement</summary><ul><li>REER, then converted to a FERR (minimum withdrawals from age 71)</li><li>CELI (tax-free withdrawals)</li><li>RRQ (Québec pension) and OAS (SV), plus GIS (SRG) if income is low</li><li>Employer plan: pension (RRPD/RRCD) or RVER</li><li>Non-registered investments and annuities</li><li>Home equity: downsize or reverse mortgage</li></ul></details>
+<details><summary>Limits for 2026</summary><ul><li>REER: 18% of last year's earnings, up to $33,810 (unused room carries over)</li><li>CELI: $7,000/yr, or up to $109,000 total if never used since 2009</li><li>REER withdrawal tax withheld in Québec: 19%, 24%, 29% by amount</li></ul></details>
+</section>
+
+<!-- 
+
+*******************************************************************
+                        Savings & Aid 
+*******************************************************************
+  
+-->
+
+<section id="aid" data-title="Savings & Aid">
+<h2>Québec and federal accounts</h2>
+<details open><summary>CELIAPP (first home)<span class="tag">Home</span></summary><ul><li>$8,000/yr, $40,000 lifetime each, so up to $80,000 for two. Deductible on contribution</li><li>Withdrawals for a first home are tax-free</li><li>Room only starts once the account is open, so open one soon, even with a small deposit</li><li>Unused room carries forward, up to $8,000</li></ul></details>
+<details><summary>REER and the Home Buyers' Plan (RAP)<span class="tag">Home</span><span class="tag">Retirement</span></summary><ul><li>Withdraw up to $60,000 from your REER for a first home</li><li>Can be combined with the CELIAPP on the same purchase</li></ul></details>
+<details><summary>CELI<span class="tag">Wedding</span></summary><p>$7,000/yr, tax-free growth and withdrawals. Ideal for the wedding and honeymoon money, since withdrawing does not tax you.</p></details>
+<h2>Reductions and benefits to check</h2>
+<details><summary>Home</summary><ul><li>Federal Home Buyers' Amount: a $10,000 amount worth up to $1,500 in tax credit</li><li>Québec has no first-time exemption on the "welcome tax", so budget it</li><li>Insured mortgages can reach a 30-year amortization for first-time buyers, which lowers monthly payments</li><li>Rénoclimat: Québec grants for energy upgrades after an audit</li></ul></details>
+<details><summary>Marriage</summary><ul><li>In Québec, spouses can transfer unused tax credits to each other</li><li>File taxes together each year and compare with filing separately</li></ul></details>
+<details><summary>Children</summary><ul><li>Québec Family Allowance (up to $3,068/child, 2026) and Canada Child Benefit (up to $8,157/yr under 6)</li><li>RQAP: Québec parental insurance for maternity, paternity and parental leave</li><li>Subsidized daycare at reduced contribution, or a tax credit for private childcare</li><li>REEE (education savings): federal grant of 20% up to $500/yr (lifetime $7,200), plus Québec's 10% incentive</li></ul></details>
+<details><summary>Retirement and everyday income</summary><ul><li>Fonds de solidarité FTQ and Fondaction: combined federal and Québec credit of about 30%, on up to $5,000 (confirm current rates)</li><li>Ask your employer about RVER or a matching contribution</li><li>Solidarity tax credit and GST credit: already in your budget grid, claimed automatically when you file</li><li>Always file your tax return, even on low income, to receive these credits</li></ul></details>
+<div class="note">Rules change often. Check amounts on Revenu Québec and Canada Revenue Agency pages, or with an accountant, before you rely on them.</div>
+</section>
+
+<!-- 
+  Scripts
+-->
+
+</main>
+<script>
+(function(){
+var secs=[].slice.call(document.querySelectorAll("section")),bar=document.getElementById("tabs");
+function show(id){secs.forEach(function(s){s.classList.toggle("on",s.id===id)});[].forEach.call(bar.children,function(b){b.classList.toggle("on",b.dataset.t===id)});window.scrollTo(0,0)}
+secs.forEach(function(s){var b=document.createElement("button");b.textContent=s.dataset.title;b.dataset.t=s.id;b.onclick=function(){show(s.id)};bar.appendChild(b)});
+show("overview");
+var $=function(i){return document.getElementById(i)},els=[].slice.call(document.querySelectorAll("[data-k]")),vals={},todo=[],vref,tref,editing=false;
+function msg(t){$("st").textContent=t}
+function apply(){els.forEach(function(e){var v=vals[e.dataset.k];if(v!=null&&document.activeElement!==e)e.textContent=v})}
+function fail(){msg("Could not save. You may have view-only access.")}
+function saveT(){tref.set({items:todo}).catch(fail)}
+function drawT(){var ul=$("todo");ul.textContent="";todo.forEach(function(it,i){var li=document.createElement("li"),c=document.createElement("input"),s=document.createElement("span"),x=document.createElement("button");
+c.type="checkbox";c.checked=!!it.d;s.textContent=it.t;x.textContent="\u2715";x.className="x";x.setAttribute("aria-label","Delete");if(it.d)li.className="d";
+c.onchange=function(){todo[i].d=c.checked;drawT();saveT()};x.onclick=function(){todo.splice(i,1);drawT();saveT()};li.appendChild(c);li.appendChild(s);li.appendChild(x);ul.appendChild(li)})}
+function add(){var v=$("ti").value.trim();if(!v||!tref)return;todo.push({t:v,d:false});$("ti").value="";drawT();saveT()}
+$("ta").onclick=add;$("ti").onkeydown=function(e){if(e.key==="Enter")add()};
+els.forEach(function(e){e.addEventListener("blur",function(){if(!editing||!vref)return;var t=e.textContent.trim();if(vals[e.dataset.k]===t)return;vals[e.dataset.k]=t;vref.set(vals).catch(fail)})});
+$("eb").onclick=function(){editing=!editing;document.body.classList.toggle("edit",editing);$("eb").classList.toggle("on",editing);$("eb").textContent=editing?"Done":"Edit";els.forEach(function(e){e.contentEditable=editing?"true":"false"})};
+
+var DEF={nh_p:400000,nh_s:150000,nr_e:108152,nr_r:2,hc_p:500000,hc_d:5,hc_r:4.5,hc_a:25},inp=Object.assign({},DEF),iref,sv;
+var N=function(k){var v=parseFloat(inp[k]);return isNaN(v)?0:v};
+var M=function(n){return (n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-CA")};
+var I=function(k,p){return `<input class="i" type="number" inputmode="decimal" step="any" data-i="${k}" placeholder="${p||0}">`};
+var R=function(a,b,c){return `<div class="res"><span>${a}</span><b${c?` class="${c}"`:""}>${b}</b></div>`};
+var BG=[["Income","inc",0,["Net salary (after deductions)","Social assistance","Employment insurance","Québec family allowance","Canada Child Benefit","Child support","RRQ","Old Age Security","GIS","GST credit","Solidarity credit","Rental income","Other"]],
+["Savings","sav",1,["REER","CELI","CELIAPP","Emergency fund","Working capital fund","House or other special project","Other"]],
+["Housing","fh",2,["Rent or mortgage","Electricity and heating","Phone","Internet and TV","Home insurance","Condo fees","School and municipal taxes","Other"]],
+["Transport","ft",2,["Car payment","Gas","Car insurance","Parking","Public transit","Taxi, car share, bike share","Licence and registration","Car maintenance","Other"]],
+["Fees and insurance","ff",2,["Bank fees","Medical and dental insurance","Disability insurance","Life insurance","Other"]],
+["Dependants","fd",2,["Daycare","Child support","Other"]],
+["Food","vf",2,["Groceries","Alcohol, tobacco","Restaurants","Delivery and take-out","Meal kit","Convenience store","Other"]],
+["Clothing","vc",2,["Laundry and cleaning","Adults","Children","Accessories","Other"]],
+["Leisure","vl",2,["Vacations and travel","Books and news","Cinema","Streaming","Clubs","Event tickets","Sports and gym","Lotteries","Other"]],
+["Education","ve",2,["School fees","School supplies","Other"]],
+["Personal care","vp",2,["Hair","Beauty","Spa","Pharmacy items","Other"]],
+["Medical","vm",2,["Medication","Dentist","Optometrist","Therapy and physio","Other"]],
+["Pets","va",2,["Pet food","Vet","Other"]],
+["Gifts and donations","vg",2,["Charity","Holiday gifts","Birthday gifts","Other"]],
+["Occasional fixed","vo",2,["Professional fees","Other"]]];
+var AS=["Car","Furniture","House","Cottage","REER","CELI investments","Chequing account","Chequing account 2","Savings account","Valuables","Other"],
+LI=["Credit cards","Personal loan","Car loan","Mortgage","Student loan","Line of credit","Deferred purchase","Revenu Québec","Canada Revenue Agency","RAP (REER) repayment","Utility bills","Other debts"],
+MO=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+function build(){
+var s="",hd=`<div class="gr hd"><span></span><span>You</span><span>Partner</span></div>`;
+BG.forEach(function(g){s+=`<details><summary>${g[0]}<span class="gt" data-gt="${g[1]}"></span></summary>${hd}`+g[3].map(function(l,r){return `<div class="gr"><span>${l}</span>${I("g:"+g[1]+":"+r+":0")}${I("g:"+g[1]+":"+r+":1")}</div>`}).join("")+`</details>`});
+$("bgd").innerHTML=s;
+$("nwd").innerHTML=`<details><summary>Assets<span class="gt" data-gt="as"></span></summary>${hd}`+AS.map(function(l,r){return `<div class="gr"><span>${l}</span>${I("a:"+r+":0")}${I("a:"+r+":1")}</div>`}).join("")+`</details><details><summary>Debts<span class="gt" data-gt="li"></span></summary><div class="gr g3 hd"><span></span><span>You owe</span><span>Partner owes</span><span>Monthly pay</span></div>`+LI.map(function(l,r){return `<div class="gr g3"><span>${l}</span>${I("l:"+r+":0")}${I("l:"+r+":1")}${I("l:"+r+":2")}</div>`}).join("")+`</details>`;
+$("nwh").innerHTML=`<div class="gr"><span>House price</span>${I("nh_p")}<span></span></div><div class="gr"><span>Household gross salary</span>${I("nh_s")}<span></span></div><div id="nho"></div>`;
+$("nwr").innerHTML=`<div class="gr"><span>Annual expenses in retirement</span>${I("nr_e")}<span></span></div><div class="gr"><span>Savings at retirement</span>${I("nr_s")}<span></span></div><div class="gr"><span>Yearly return, %</span>${I("nr_r")}<span></span></div><div id="nro"></div>`;
+var hc=[["Price","hc_p"],["Down payment, %","hc_d"],["Interest rate, %","hc_r"],["Amortization, years","hc_a"],["Saved so far","hc_s"],["Saved per month","hc_m"],["Notary","hc_n"],["Inspection","hc_i"],["Welcome tax","hc_w"],["Other closing costs","hc_o"],["Property taxes, per year","hc_t"],["Condo fees, per month","hc_f"]];
+$("hc").innerHTML=hc.map(function(x){return `<div class="gr"><span>${x[0]}</span>${I(x[1])}<span></span></div>`}).join("")+`<div id="hco"></div>`;
+var y=new Date().getFullYear(),o="";for(var i=2025;i<=2035;i++)o+=`<option${i==y?" selected":""}>${i}</option>`;$("cy").innerHTML=o;$("cy").onchange=cash;
+}
+function gt(id,n){var t=0;for(var r=0;r<n;r++)t+=N("g:"+id+":"+r+":0")+N("g:"+id+":"+r+":1");return t}
+function setT(k,v){[].forEach.call(document.querySelectorAll("[data-gt='"+k+"']"),function(e){e.textContent=M(v)})}
+function cash(){
+var y=$("cy").value,t="<div class='gr g3 hd'><span>Month</span><span>Income</span><span>Expense</span><span>Net</span></div>",ti=0,te=0;
+for(var m=0;m<12;m++){var a=N("c:"+y+":"+m+":0"),b=N("c:"+y+":"+m+":1");ti+=a;te+=b;t+=`<div class="gr g3"><span>${MO[m]}</span>${I("c:"+y+":"+m+":0")}${I("c:"+y+":"+m+":1")}<span class="${a-b<0?"neg":""}" style="text-align:right">${M(a-b)}</span></div>`}
+t+=R("Total income",M(ti))+R("Total expenses",M(te))+R("Net",M(ti-te),ti-te<0?"neg":"");
+var f=document.activeElement,k=f&&f.dataset&&f.dataset.i,p=f&&f.selectionStart;
+$("cft").innerHTML=t;fill();
+if(k){var e=document.querySelector("[data-i='"+k+"']");if(e){e.focus();try{e.setSelectionRange(p,p)}catch(x){}}}
+var s="";for(var Y=2025;Y<=2035;Y++){var i2=0,e2=0;for(var q=0;q<12;q++){i2+=N("c:"+Y+":"+q+":0");e2+=N("c:"+Y+":"+q+":1")}s+=`<tr><td>${Y}</td><td class="n">${M(i2)}</td><td class="n">${M(e2)}</td><td class="n">${M(i2-e2)}</td></tr>`}
+$("cfy").innerHTML=`<div class="card wrap"><table><tr><th>Year</th><th class="n">Income</th><th class="n">Expenses</th><th class="n">Net</th></tr>${s}</table></div>`;
+}
+var BT=[["Wedding","w","29000"],["Honeymoon","h","11000"],["House (cash needed)","u","62000"]];
+function buildBT(){
+$("btb").innerHTML=BT.map(function(b){return `<div class="card bt" style="margin-bottom:12px"><h3>${b[0]}</h3><div class="gr"><span>Total cost</span>${I("bt_"+b[1]+"_c",b[2])}</div><div class="gr"><span>We invest</span>${I("bt_"+b[1]+"_i")}</div><div class="gr"><span>Others invest in us<small>gifts, family, parents</small></span>${I("bt_"+b[1]+"_o")}</div><div class="res"><span>Difference<small id="bp_${b[1]}"></small></span><b id="bd_${b[1]}">$0</b></div></div>`}).join("")+`<div class="card bt"><h3>Everything combined</h3><div class="res"><span>Total cost</span><b id="bt_tc"></b></div><div class="res"><span>We invest</span><b id="bt_ti"></b></div><div class="res"><span>Others invest in us</span><b id="bt_to"></b></div><div class="res"><span>Difference</span><b id="bt_td"></b></div></div>`;
+}
+function calcBT(){
+var tc=0,ti=0,to=0;
+BT.forEach(function(b){var c=N("bt_"+b[1]+"_c"),v=N("bt_"+b[1]+"_i"),o=N("bt_"+b[1]+"_o"),d=c-v-o;tc+=c;ti+=v;to+=o;
+var e=$("bd_"+b[1]);e.textContent=M(d);e.className=d>0?"neg":"ok";
+$("bp_"+b[1]).textContent=c?Math.max(0,Math.round((v+o)/c*100))+"% covered":""});
+var d=tc-ti-to;$("bt_tc").textContent=M(tc);$("bt_ti").textContent=M(ti);$("bt_to").textContent=M(to);var e=$("bt_td");e.textContent=M(d);e.className=d>0?"neg":"ok";
+$("bts").innerHTML=`<div class="card"><div class="big">${M(tc)}</div><div class="lbl">Total cost</div></div><div class="card"><div class="big">${M(ti)}</div><div class="lbl">We invest</div></div><div class="card"><div class="big">${M(to)}</div><div class="lbl">Others invest in us</div></div><div class="card"><div class="big ${d>0?"neg":""}">${M(d)}</div><div class="lbl">Difference</div></div>`;
+}
+function calc(){calcBT();
+var inc=0,sav=0,ex=0,rows="";
+BG.forEach(function(g){var v=gt(g[1],g[3].length);setT(g[1],v);if(g[2]==0)inc=v;else if(g[2]==1)sav=v;else{ex+=v;g._v=v}});
+var debt=0;for(var r=0;r<LI.length;r++)debt+=N("l:"+r+":2");
+BG.forEach(function(g){if(g[2]==2&&g._v)rows+=`<tr><td>${g[0]}</td><td class="n">${M(g._v)}</td><td class="n">${inc?Math.round(g._v/inc*100)+"%":"-"}</td></tr>`});
+var bal=inc-ex-debt-sav;
+$("bgs").innerHTML=`<div class="card">${R("Monthly income",M(inc))}${R("Expenses",M(ex))}${R("Debt payments (Net Worth tab)",M(debt))}${R("Planned savings",M(sav))}${R("Left over per month",M(bal),bal<0?"neg":"")}${R("Left over per year",M(bal*12),bal<0?"neg":"")}</div>`+(rows?`<div class="card wrap" style="margin-top:10px"><table><tr><th>Expense group</th><th class="n">Monthly</th><th class="n">% of income</th></tr>${rows}</table></div>`:"");
+var a=0,l=0,lm=0;AS.forEach(function(x,r){a+=N("a:"+r+":0")+N("a:"+r+":1")});LI.forEach(function(x,r){l+=N("l:"+r+":0")+N("l:"+r+":1");lm+=N("l:"+r+":2")});
+setT("as",a);setT("li",l);
+$("nws").innerHTML=`<div class="card"><div class="big">${M(a)}</div><div class="lbl">Assets</div></div><div class="card"><div class="big">${M(l)}</div><div class="lbl">Debts</div></div><div class="card"><div class="big ${a-l<0?"neg":""}">${M(a-l)}</div><div class="lbl">Net worth</div></div><div class="card"><div class="big">${M(lm)}</div><div class="lbl">Debt payments per month</div></div>`;
+var p=N("nh_p"),s=N("nh_s");$("nho").innerHTML=R("3x salary guideline",M(s*3))+R("Verdict",s&&p?(p<=s*3?"Within the guideline":"Above the guideline"):"-",p>s*3&&s?"neg":"");
+var e=N("nr_e"),sv2=N("nr_s"),rt=N("nr_r")/100,yl="-";
+if(sv2&&e){if(sv2*rt>=e)yl="Gains cover expenses";else if(rt>0)yl=Math.round(-Math.log(1-sv2*rt/e)/Math.log(1+rt)*10)/10+" years";else yl=Math.round(sv2/e*10)/10+" years"}
+$("nro").innerHTML=R("Needed (rule of 25)",M(e*25))+R("Your savings last",yl)+R("Gap to rule of 25",sv2?M(sv2-e*25):"-",sv2-e*25<0?"neg":"");
+var P=N("hc_p"),d=N("hc_d")/100,dp=P*d,mn=P<=5e5?P*.05:25000+(Math.min(P,15e5)-5e5)*.1,pr=d>=.2?0:d>=.15?.028:d>=.1?.031:.04,L=(P-dp)*(1+pr),i=N("hc_r")/1200,n=N("hc_a")*12,pm=!n?0:i?L*i/(1-Math.pow(1+i,-n)):L/n;
+var cl=N("hc_n")+N("hc_i")+N("hc_w")+N("hc_o"),need=dp+cl,left=need-N("hc_s"),mo=N("hc_m");
+$("hco").innerHTML=R("Down payment",M(dp))+R("Minimum down payment",M(mn),dp<mn?"neg":"")+R("Mortgage insurance",M((P-dp)*pr)+" ("+(pr*100).toFixed(1)+"%)")+R("Mortgage with premium",M(L))+R("Estimated monthly payment",M(pm))+R("Monthly with taxes and fees",M(pm+N("hc_t")/12+N("hc_f")))+R("Closing costs",M(cl))+R("Cash needed (down + closing)",M(need))+R("Time to save it",left<=0?"Reached":mo?(left/mo/12).toFixed(1)+" years":"-");
+}
+function fill(){[].forEach.call(document.querySelectorAll("[data-i]"),function(e){var v=inp[e.dataset.i];if(document.activeElement!==e)e.value=v==null?"":v})}
+function all(){calc();cash()}
+buildBT();build();fill();all();
+document.addEventListener("input",function(e){var k=e.target.dataset&&e.target.dataset.i;if(!k)return;inp[k]=e.target.value;if(k.charAt(0)=="c")cash();calc();clearTimeout(sv);sv=setTimeout(function(){iref&&iref.set(inp).catch(fail)},500)});
+
+(async function(){
+var db=null,local=false;
+try{if(window.claude&&claude.use)db=await claude.use("db")}catch(e){}
+if(!db){local=true;db={doc:function(p){return{set:function(d){try{localStorage.setItem("rm:"+p,JSON.stringify(d))}catch(e){}return Promise.resolve()},onSnapshot:function(n){var v=null;try{v=localStorage.getItem("rm:"+p)}catch(e){}n({exists:!!v,data:function(){return v?JSON.parse(v):undefined}})}}}}}
+vref=db.doc("roadmap/values");iref=db.doc("roadmap/inputs");iref.onSnapshot(function(s){inp=Object.assign({},DEF,s.exists?s.data():{});fill();all()},fail);tref=db.doc("roadmap/todo");$("eb").style.display="inline-block";
+vref.onSnapshot(function(s){vals=s.exists?Object.assign({},s.data()):{};apply();msg(local?"Edits are saved on this device only.":"Shared: changes show up for both of you.")},fail);
+tref.onSnapshot(function(s){todo=(s.exists&&s.data().items)||[];drawT()},fail);
+})();
+})();
+</script>
+</body>
+</html>
